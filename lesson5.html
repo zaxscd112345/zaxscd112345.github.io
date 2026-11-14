@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="site_title">สื่อการเรียนการสอน Python ระดับมืออาชีพ</title>
+    <title data-i18n="site_title">สื่อการเรียนการสอน Python</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -15,11 +15,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style> body { font-family: 'Mali', 'Itim', 'Noto Sans SC', cursive, sans-serif; } </style>
     <script>
-        // Multi-language dictionary
         const translations = {
             th: {
-                site_title: "สื่อการเรียนการสอน Python ระดับมืออาชีพ",
-                header_subtitle: "ฉบับเจาะลึกโครงสร้างภาษา เข้าใจง่าย ทำงานได้จริง จัดเต็ม 6 บทเรียน + ข้อสอบอัจฉริยะ",
+                site_title: "สื่อการเรียนการสอน Python",
+                header_subtitle: "ฉบับมือใหม่เข้าใจง่าย จัดเต็ม 6 บทเรียน ตะลุยโจทย์พร้อมสอบ",
                 menu_title: "เมนูบทเรียนทั้งหมด",
                 l1: "บทที่ 1: พื้นฐานโครงสร้าง & ตัวแปร",
                 l2: "บทที่ 2: ชนิดข้อมูล & ตัวดำเนินการ",
@@ -30,14 +29,13 @@
                 quiz: "ข้อสอบเก็บคะแนน (Quiz Hub)",
                 dark_mode: "โหมดมืด",
                 light_mode: "โหมดสว่าง",
-                footer_text: "Copyright © 2026 By.Thaweesak | Professional Python Learning Platform",
+                footer_text: "Copyright © 2026 By.Thaweesak",
                 widget_progress: "ความก้าวหน้าการเรียนรู้",
-                widget_quickref: "คู่มือคำสั่งด่วน (Cheat Sheet)",
                 widget_status: "สถานะระบบ: พร้อมใช้งาน 100%"
             },
             en: {
-                site_title: "Professional Python Learning Platform",
-                header_subtitle: "Comprehensive structural guide, master Python programming with 6 detailed modules & smart quiz.",
+                site_title: "Python Learning Platform",
+                header_subtitle: "Beginner-friendly Python course with 6 modules & quiz.",
                 menu_title: "All Lesson Menus",
                 l1: "Lesson 1: Syntax & Variables",
                 l2: "Lesson 2: Data Types & Operators",
@@ -48,14 +46,13 @@
                 quiz: "Assessment Quiz Hub",
                 dark_mode: "Dark Mode",
                 light_mode: "Light Mode",
-                footer_text: "Copyright © 2026 By.Thaweesak | Professional Python Learning Platform",
+                footer_text: "Copyright © 2026 By.Thaweesak",
                 widget_progress: "Learning Progress",
-                widget_quickref: "Quick Reference Cheat Sheet",
                 widget_status: "System Status: 100% Operational"
             },
             cn: {
-                site_title: "Python 专业互动教学平台",
-                header_subtitle: "深入剖析 Python 语言结构，包含 6 大核心模块与智能测试中心。",
+                site_title: "Python 教学平台",
+                header_subtitle: "适合新手的 Python 课程，包含 6 大模块与测验。",
                 menu_title: "所有课程菜单",
                 l1: "第一课：基础语法与变量",
                 l2: "第二课：数据类型与运算符",
@@ -66,9 +63,8 @@
                 quiz: "互动测验中心 (Quiz Hub)",
                 dark_mode: "深色模式",
                 light_mode: "浅色模式",
-                footer_text: "Copyright © 2026 By.Thaweesak | Python 专业教学平台",
+                footer_text: "Copyright © 2026 By.Thaweesak",
                 widget_progress: "学习进度",
-                widget_quickref: "常用语法速查表",
                 widget_status: "系统状态：运行正常"
             }
         };
@@ -86,7 +82,6 @@
                     }
                 }
             });
-            // Update active lang button styling
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 if (btn.getAttribute('data-lang') === lang) {
                     btn.classList.add('bg-pink-500', 'text-white', 'shadow-md');
@@ -106,7 +101,6 @@
             } else {
                 htmlRoot.classList.add('dark');
             }
-
             const savedLang = localStorage.getItem('lang') || 'th';
             window.addEventListener('DOMContentLoaded', () => {
                 setLanguage(savedLang);
@@ -151,20 +145,18 @@
                     <i class="fa-solid fa-code text-xl sm:text-2xl text-white"></i>
                 </div>
                 <div>
-                    <h1 class="text-xs sm:text-base lg:text-xl font-bold tracking-wide bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent" data-i18n="site_title">สื่อการเรียนการสอน Python ระดับมืออาชีพ</h1>
-                    <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium" data-i18n="header_subtitle">ฉบับเจาะลึกโครงสร้างภาษา เข้าใจง่าย ทำงานได้จริง จัดเต็ม 6 บทเรียน + ข้อสอบอัจฉริยะ</p>
+                    <h1 class="text-xs sm:text-base lg:text-xl font-bold tracking-wide bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent" data-i18n="site_title">สื่อการเรียนการสอน Python</h1>
+                    <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium" data-i18n="header_subtitle">ฉบับมือใหม่เข้าใจง่าย จัดเต็ม 6 บทเรียน ตะลุยโจทย์พร้อมสอบ</p>
                 </div>
             </div>
             
             <div class="flex items-center space-x-2 sm:space-x-3">
-                <!-- Language Switcher Widget -->
                 <div class="flex bg-slate-100 dark:bg-slate-700/60 p-1 rounded-2xl border border-slate-300 dark:border-slate-600 text-xs font-bold">
                     <button onclick="setLanguage('th')" data-lang="th" class="lang-btn px-2.5 py-1.5 rounded-xl transition-all">ไทย</button>
                     <button onclick="setLanguage('en')" data-lang="en" class="lang-btn px-2.5 py-1.5 rounded-xl transition-all">ENG</button>
                     <button onclick="setLanguage('cn')" data-lang="cn" class="lang-btn px-2.5 py-1.5 rounded-xl transition-all">中文</button>
                 </div>
 
-                <!-- Theme Toggle Button -->
                 <button onclick="toggleTheme()" class="bg-slate-100 dark:bg-slate-700/60 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-600 px-3 sm:px-4 py-2 rounded-2xl text-xs sm:text-sm font-medium transition-all shadow-sm flex items-center space-x-1.5">
                     <i id="themeIcon" class="fa-solid fa-moon text-pink-400"></i> <span id="themeLabel" class="hidden sm:inline">โหมดมืด</span>
                 </button>
@@ -173,7 +165,6 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-grow w-full grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
-        <!-- Sidebar Navigation & Widgets -->
         <aside class="lg:col-span-1 space-y-6 h-fit sticky top-28">
             <div class="bg-white/85 dark:bg-slate-800/70 backdrop-blur border border-slate-200 dark:border-slate-700/80 rounded-3xl p-4 sm:p-5 shadow-sm">
                 <h2 class="text-base sm:text-lg font-bold text-pink-500 dark:text-pink-400 mb-3 flex items-center space-x-2">
@@ -190,7 +181,6 @@
                 </nav>
             </div>
 
-            <!-- Interactive Widget: Progress & Quick Tips -->
             <div class="bg-gradient-to-br from-pink-500/10 to-rose-500/10 dark:from-pink-950/30 dark:to-rose-950/30 border border-pink-500/20 rounded-3xl p-5 space-y-3 shadow-sm">
                 <div class="flex items-center justify-between">
                     <span class="text-xs font-bold text-pink-600 dark:text-pink-400 flex items-center"><i class="fa-solid fa-chart-line mr-2"></i><span data-i18n="widget_progress">ความก้าวหน้าการเรียนรู้</span></span>
@@ -203,7 +193,6 @@
             </div>
         </aside>
 
-        <!-- Main Content Section -->
         <section class="lg:col-span-3 space-y-6">
 
     <div class="bg-white/90 dark:bg-slate-800/70 backdrop-blur border border-slate-200 dark:border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
@@ -243,7 +232,7 @@
     </main>
 
     <footer class="bg-white/85 dark:bg-slate-800/85 border-t border-slate-200 dark:border-slate-700 py-6 mt-12 text-center text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
-        <div class="max-w-7xl mx-auto px-4"><p data-i18n="footer_text">Copyright © 2026 By.Thaweesak | Professional Python Learning Platform</p></div>
+        <div class="max-w-7xl mx-auto px-4"><p data-i18n="footer_text">Copyright © 2026 By.Thaweesak</p></div>
     </footer>
 </body>
 </html>
