@@ -18,9 +18,9 @@
         const translations = {
             th: {
                 site_title: "Student Python",
-                header_subtitle: "ฉบับมือใหม่เข้าใจง่าย จัดเต็ม 6 บทเรียน ตะลุยโจทย์พร้อมสอบ",
+                header_subtitle: "ฉบับมือใหม่เข้าใจง่าย จัดเต็มคู่มือปูพื้นฐาน ตัวแปร & ฟังก์ชัน",
                 menu_title: "เมนูบทเรียนทั้งหมด",
-                l1: "บทที่ 1: พื้นฐานโครงสร้าง & ตัวแปร",
+                l1: "บทที่ 1: ตัวแปร, ฟังก์ชัน และวงเล็บคืออะไร?",
                 l2: "บทที่ 2: ชนิดข้อมูล & ตัวดำเนินการ",
                 l3: "บทที่ 3: เงื่อนไขและการตัดสินใจ (If-Else)",
                 l4: "บทที่ 4: การวนซ้ำ (For & While Loops)",
@@ -35,9 +35,9 @@
             },
             en: {
                 site_title: "Student Python",
-                header_subtitle: "Beginner-friendly Python course with 6 modules & quiz.",
+                header_subtitle: "Beginner guide: Variables, Functions & Brackets explained.",
                 menu_title: "All Lesson Menus",
-                l1: "Lesson 1: Syntax & Variables",
+                l1: "Lesson 1: Variables, Functions & Brackets",
                 l2: "Lesson 2: Data Types & Operators",
                 l3: "Lesson 3: Conditional Statements (If-Else)",
                 l4: "Lesson 4: Loops (For & While)",
@@ -52,9 +52,9 @@
             },
             cn: {
                 site_title: "Student Python",
-                header_subtitle: "适合新手的 Python 课程，包含 6 大模块与测验。",
+                header_subtitle: "新手指南：变量、函数与括号详解",
                 menu_title: "所有课程菜单",
-                l1: "第一课：基础语法与变量",
+                l1: "第一课：变量、函数与括号详解",
                 l2: "第二课：数据类型与运算符",
                 l3: "第三课：条件判断语句 (If-Else)",
                 l4: "第四课：循环结构 (For & While)",
@@ -146,7 +146,7 @@
                 </div>
                 <div>
                     <h1 class="text-xs sm:text-base lg:text-xl font-bold tracking-wide bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent" data-i18n="site_title">Student Python</h1>
-                    <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium" data-i18n="header_subtitle">ฉบับมือใหม่เข้าใจง่าย จัดเต็ม 6 บทเรียน ตะลุยโจทย์พร้อมสอบ</p>
+                    <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium" data-i18n="header_subtitle">ฉบับมือใหม่เข้าใจง่าย จัดเต็มคู่มือปูพื้นฐาน ตัวแปร & ฟังก์ชัน</p>
                 </div>
             </div>
             
@@ -171,7 +171,7 @@
                     <i class="fa-solid fa-bars-staggered"></i><span data-i18n="menu_title">เมนูบทเรียนทั้งหมด</span>
                 </h2>
                 <nav class="space-y-2 text-xs sm:text-sm font-bold">
-                    <a href="index.html" class="menu-l1 w-full text-left px-3.5 py-2.5 rounded-2xl transition-all flex items-center space-x-3"><i class="fa-solid fa-1 w-5 text-center"></i><span data-i18n="l1">บทที่ 1: พื้นฐานโครงสร้าง & ตัวแปร</span></a>
+                    <a href="index.html" class="menu-l1 w-full text-left px-3.5 py-2.5 rounded-2xl transition-all flex items-center space-x-3"><i class="fa-solid fa-1 w-5 text-center"></i><span data-i18n="l1">บทที่ 1: ตัวแปร, ฟังก์ชัน และวงเล็บคืออะไร?</span></a>
                     <a href="lesson2.html" class="menu-l2 w-full text-left px-3.5 py-2.5 rounded-2xl transition-all flex items-center space-x-3"><i class="fa-solid fa-2 w-5 text-center"></i><span data-i18n="l2">บทที่ 2: ชนิดข้อมูล & ตัวดำเนินการ</span></a>
                     <a href="lesson3.html" class="menu-l3 w-full text-left px-3.5 py-2.5 rounded-2xl transition-all flex items-center space-x-3"><i class="fa-solid fa-3 w-5 text-center"></i><span data-i18n="l3">บทที่ 3: เงื่อนไขและการตัดสินใจ (If-Else)</span></a>
                     <a href="lesson4.html" class="menu-l4 w-full text-left px-3.5 py-2.5 rounded-2xl transition-all flex items-center space-x-3"><i class="fa-solid fa-4 w-5 text-center"></i><span data-i18n="l4">บทที่ 4: การวนซ้ำ (For & While Loops)</span></a>
@@ -195,37 +195,75 @@
 
         <section class="lg:col-span-3 space-y-6">
 
-    <div class="bg-white/90 dark:bg-slate-800/70 backdrop-blur border border-slate-200 dark:border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+    <div class="bg-white/90 dark:bg-slate-800/70 backdrop-blur border border-slate-200 dark:border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-sm space-y-8">
         <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
-            <span class="text-xs uppercase tracking-wider px-3 py-1 bg-pink-500/10 text-pink-600 dark:text-pink-400 rounded-full font-bold">บทที่ 1</span>
-            <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold mt-2 text-slate-900 dark:text-white">โครงสร้างภาษา Python และการประกาศตัวแปรขั้นสูง (Syntax & Variables)</h2>
+            <span class="text-xs uppercase tracking-wider px-3 py-1 bg-pink-500/10 text-pink-600 dark:text-pink-400 rounded-full font-bold">บทที่ 1 (ปูพื้นฐานฉบับสมบูรณ์)</span>
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold mt-2 text-slate-900 dark:text-white">ตัวแปร, ฟังก์ชัน และวงเล็บคืออะไร? (คู่มือเข้าใจง่ายสำหรับมือใหม่)</h2>
         </div>
         
-        <div class="space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed font-medium">
-            <p>ภาษา Python ถูกออกแบบมาให้มีความเรียบง่าย อ่านง่าย คล้ายภาษาอังกฤษธรรมชาติ โดยจุดเด่นสำคัญคือ <strong>ไม่ต้องประกาศชนิดข้อมูล (Type Declaration) ล่วงหน้า</strong> และใช้การจัดย่อหน้า (Indentation) แทนการใช้ปีกกา <code>{}</code> แบบภาษาอื่น</p>
+        <div class="space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+            <h3 class="text-lg sm:text-xl font-bold text-pink-600 dark:text-pink-400 flex items-center"><i class="fa-solid fa-box-archive mr-2"></i>1. ตัวแปร (Variables) คืออะไร?</h3>
+            <p>ลองนึกภาพว่าคุณไปซื้อกล่องเก็บของมาหลายๆ ใบ แล้วเอาป้ายชื่อแปะไว้ข้างกล่อง เพื่อจะได้รู้ว่าข้างในใส่อะไรอยู่... <strong>"ตัวแปร" ในคอมพิวเตอร์ก็คือกล่องเก็บข้อมูลเหล่านั้นครับ!</strong></p>
+            <p>เวลาเราเขียนโปรแกรม เราต้องการจำค่าอะไรบางอย่าง เช่น ชื่อผู้เล่น คะแนนสอบ หรือราคาสินค้า เราก็สร้าง "ตัวแปร" ขึ้นมาเก็บค่าไว้ แล้วเรียกใช้งานได้ตลอดเวลาโดยไม่ต้องมานั่งจำเอง</p>
             
             <div class="bg-slate-950 rounded-2xl p-4 sm:p-6 border border-slate-800 shadow-inner font-mono text-sm">
-                <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-xs text-slate-500"><span>lesson_01_core.py</span><span>Python 3.12</span></div>
-                <pre class="overflow-x-auto text-xs sm:text-sm lg:text-base leading-relaxed text-emerald-400"><code><span class="text-slate-500"># 1. การประกาศตัวแปรและการกำหนดค่า (Variable Assignment)</span>
-<span class="text-cyan-400">full_name</span> = <span class="text-amber-300">"Thaweesak Janyasit"</span>
-<span class="text-cyan-400">age</span> = <span class="text-purple-400">24</span>
-<span class="text-cyan-400">gpa</span> = <span class="text-purple-400">3.85</span>
-<span class="text-cyan-400">is_developer</span> = <span class="text-blue-400">True</span>
-
-<span class="text-slate-500"># 2. การแสดงผลด้วย f-string (Formatted String Literal)</span>
-<span class="text-pink-400">print</span>(<span class="text-amber-300">f</span><span class="text-amber-300">"Developer: {full_name}, Age: {age}, GPA: {gpa}"</span>)
-<span class="text-pink-400">print</span>(<span class="text-amber-300">f</span><span class="text-amber-300">"Active Status: {is_developer}"</span>)</code></pre>
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-xs text-slate-500"><span>variables_demo.py</span><span>Python 3.12</span></div>
+                <pre class="overflow-x-auto text-xs sm:text-sm lg:text-base leading-relaxed text-emerald-400"><code><span class="text-slate-500"># ตัวอย่างการสร้างกล่อง (ตัวแปร) เพื่อเก็บข้อมูล</span>
+<span class="text-cyan-400">name</span> = <span class="text-amber-300">"สมชาย"</span>       <span class="text-slate-500"># สร้างกล่องชื่อ name เก็บข้อความ "สมชาย"</span>
+<span class="text-cyan-400">score</span> = <span class="text-purple-400">95</span>           <span class="text-slate-500"># สร้างกล่องชื่อ score เก็บตัวเลข 95</span>
+<span class="text-cyan-400">is_passed</span> = <span class="text-blue-400">True</span>     <span class="text-slate-500"># สร้างกล่องเก็บสถานะความจริง (True/False)</span></code></pre>
             </div>
 
-            <div class="bg-slate-100 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/50 space-y-3">
-                <h3 class="font-bold text-pink-600 dark:text-pink-300 text-base sm:text-lg"><i class="fa-solid fa-layer-group mr-2"></i>เจาะลึกโครงสร้างเบื้องหลัง (Under the Hood)</h3>
-                <ul class="space-y-2 text-xs sm:text-sm lg:text-base">
-                    <li><strong>Dynamic Typing:</strong> ตัวแปรใน Python ทำหน้าที่เสมือน "ป้ายชื่อ" (Reference) ที่แปะติดกับออบเจ็กต์ในหน่วยความจำ ไม่ใช่ตัวกล่องเก็บข้อมูลโดยตรง</li>
-                    <li><strong>Naming Conventions:</strong> การตั้งชื่อตัวแปรต้องขึ้นต้นด้วยตัวอักษรหรือเครื่องหมาย underscore (<code>_</code>) ห้ามขึ้นต้นด้วยตัวเลข และนิยมใช้รูปแบบ snake_case</li>
-                    <li><strong>Indentation Rule:</strong> Python บังคับเคาะย่อหน้ามาตรฐาน 4 spaces ในบล็อกคำสั่ง เพื่อความสะอาดและเป็นระเบียบในการอ่านโค้ด</li>
+            <div class="bg-slate-100 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/50 space-y-2">
+                <h4 class="font-bold text-slate-900 dark:text-white">💡 ข้อควรรู้ในการตั้งชื่อตัวแปรสำหรับมือใหม่:</h4>
+                <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                    <li><strong>ชื่อต้องสื่อความหมาย:</strong> เช่น ใช้ <code>price</code> แทนราคา ไม่ควรตั้งมั่วๆ เช่น <code>x1</code> หรือ <code>asdf</code></li>
+                    <li><strong>ห้ามเว้นวรรค:</strong> ถ้ามีหลายคำให้ใช้ขีดล่างเชื่อม เช่น <code>my_score</code></li>
+                    <li><strong>ห้ามขึ้นต้นด้วยตัวเลข:</strong> เช่น <code>1name</code> จะ Error ทันที แต่ใส่ตัวเลขข้างหลังได้ เช่น <code>name1</code></li>
                 </ul>
             </div>
         </div>
+
+        <div class="space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed pt-4 border-t border-slate-200 dark:border-slate-700">
+            <h3 class="text-lg sm:text-xl font-bold text-pink-600 dark:text-pink-400 flex items-center"><i class="fa-solid fa-gears mr-2"></i>2. คำสั่ง และ ฟังก์ชัน (Functions) คืออะไร ใช้ทำอะไร?</h3>
+            <p>ถ้าตัวแปรคือ "กล่องเก็บของ" <strong>ฟังก์ชันก็คือ "เครื่องจักรกลอัตโนมัติ" ประจำตัวเราครับ!</strong> ฟังก์ชันคือชุดคำสั่งสำเร็จรูปที่ถูกเขียนรวบรวมไว้ล่วงหน้า เพื่อให้เราสั่งงานยากๆ ให้เสร็จได้ง่ายๆ ด้วยการเรียกชื่อมันคำเดียว</p>
+            <p><em>เปรียบเหมือน "เครื่องปั่นน้ำผลไม้"</em> — คุณใส่ผลไม้เข้าไป (เรียกว่าข้อมูลนำเข้า หรือ <strong>Argument</strong>) เครื่องจะจัดการปั่นให้ แล้วคั้นน้ำผลไม้ออกมาให้คุณดื่ม (เรียกว่าผลลัพธ์ หรือ <strong>Return value</strong>)</p>
+
+            <div class="bg-slate-950 rounded-2xl p-4 sm:p-6 border border-slate-800 shadow-inner font-mono text-sm">
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-xs text-slate-500"><span>functions_demo.py</span><span>Python 3.12</span></div>
+                <pre class="overflow-x-auto text-xs sm:text-sm lg:text-base leading-relaxed text-emerald-400"><code><span class="text-slate-500"># print() คือฟังก์ชันสั่งแสดงข้อความออกหน้าจอ</span>
+<span class="text-pink-400">print</span>(<span class="text-amber-300">"สวัสดีชาวโลก!"</span>)
+
+<span class="text-slate-500"># len() คือฟังก์ชันนับจำนวนตัวอักษรในข้อความ</span>
+text_length = <span class="text-pink-400">len</span>(<span class="text-amber-300">"Python"</span>)  <span class="text-slate-500"># ได้ผลลัพธ์เป็นเลข 6</span>
+<span class="text-pink-400">print</span>(text_length)</code></pre>
+            </div>
+        </div>
+
+        <div class="space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed pt-4 border-t border-slate-200 dark:border-slate-700">
+            <h3 class="text-lg sm:text-xl font-bold text-pink-600 dark:text-pink-400 flex items-center"><i class="fa-solid fa-brackets-round mr-2"></i>3. วงเล็บ <code class="text-amber-500">()</code> ใช้ทำอะไร? ในกรณีไหนใช้ได้ หรือไม่ได้บ้าง?</h3>
+            <p>เครื่องหมายวงเล็บกลม <code class="text-amber-500">()</code> เป็นสัญลักษณ์สำคัญมาก มาดูสรุปชัดๆ กันเลยครับว่าใช้ตอนไหนได้ และห้ามใช้ตอนไหนบ้าง:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-emerald-500/10 border border-emerald-500/30 p-5 rounded-2xl space-y-2">
+                    <h4 class="font-bold text-emerald-600 dark:text-emerald-400 text-base"><i class="fa-solid fa-circle-check mr-2"></i>กรณีที่ "ใช้ได้" และ "ต้องใช้" (บังคับมี)</h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm">
+                        <li><strong>เรียกใช้ฟังก์ชัน:</strong> ต้องใส่วงเล็บตามหลังชื่อฟังก์ชันเสมอเพื่อส่งข้อมูล เช่น <code class="bg-slate-200 dark:bg-slate-900 px-1.5 py-0.5 rounded">print("Hello")</code></li>
+                        <li><strong>จัดลำดับคำนวณเลข:</strong> ใช้กำหนดให้ทำในวงเล็บก่อนเหมือนคณิตศาสตร์ เช่น <code class="bg-slate-200 dark:bg-slate-900 px-1.5 py-0.5 rounded">result = (5 + 3) * 2</code></li>
+                        <li><strong>สร้าง Tuple (กลุ่มข้อมูล):</strong> ใช้ครอบข้อมูลหลายค่าเข้าด้วยกัน เช่น <code class="bg-slate-200 dark:bg-slate-900 px-1.5 py-0.5 rounded">pos = (10, 20)</code></li>
+                    </ul>
+                </div>
+
+                <div class="bg-rose-500/10 border border-rose-500/30 p-5 rounded-2xl space-y-2">
+                    <h4 class="font-bold text-rose-600 dark:text-rose-400 text-base"><i class="fa-solid fa-circle-xmark mr-2"></i>กรณีที่ "ห้ามใช้" (ข้อควรระวังมือใหม่)</h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm">
+                        <li><strong>ห้ามครอบเงื่อนไข If-Else:</strong> ในภาษาอื่นอาจต้องมี แต่ใน Python <strong>ห้ามใส่วงเล็บครอบเงื่อนไข</strong> เช่น ห้ามเขียน <code>if (x > 5):</code> ให้เขียนว่า <code class="bg-slate-200 dark:bg-slate-900 px-1.5 py-0.5 rounded">if x > 5:</code> แทน</li>
+                        <li><strong>ห้ามใช้สร้างบล็อกคำสั่ง:</strong> Python ใช้การเคาะย่อหน้า (Indentation) แทนการใช้ปีกกาหรือวงเล็บครอบชุดคำสั่ง</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
     <script>document.querySelector('.menu-l1').classList.add('bg-pink-500', 'text-white', 'shadow-md', 'shadow-pink-500/20'); document.getElementById('progressBar').style.width = '16%';</script>
     
