@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm 15mm;
+            background-color: #fcfbfa;
+            @bottom-right {
+                content: "หน้า " counter(page);
+                font-size: 9pt;
+                color: #718096;
+            }
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Tahoma', 'Garuda', 'sans-serif';
+            color: #2d3748;
+            line-height: 1.7;
+            font-size: 11pt;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #1a365d;
+            font-size: 22pt;
+            margin-bottom: 5px;
+            border-bottom: 3px solid #3182ce;
+            padding-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 12pt;
+            color: #4a5568;
+            margin-bottom: 25px;
+        }
+        h2 {
+            color: #2b6cb0;
+            font-size: 15pt;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            border-left: 5px solid #3182ce;
+            padding-left: 10px;
+            page-break-after: avoid;
+        }
+        h3 {
+            color: #2c5282;
+            font-size: 12pt;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            page-break-after: avoid;
+        }
+        p {
+            margin-bottom: 12px;
+        }
+        .code-box {
+            background-color: #1a202c;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 10pt;
+            margin: 12px 0;
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+        .code-keyword { color: #f687b3; }
+        .code-string { color: #68d391; }
+        .code-comment { color: #a0aec0; font-style: italic; }
+        .code-func { color: #63b3ed; }
+        
+        .callout {
+            background-color: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .callout-warning {
+            background-color: #fff5f5;
+            border-left: 4px solid #e53e3e;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+        th, td {
+            border: 1px solid #cbd5e0;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #edf2f7;
+            color: #2d3748;
+            font-weight: bold;
+        }
+        .math {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            color: #b7791f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>คู่มือ Python ฉบับเริ่มต้น: ตัวแปร และ ฟังก์ชัน</h1>
+    <div class="subtitle">อธิบายละเอียดยิบ เข้าใจง่ายเหมือนคุยกัน สำหรับคนไม่มีพื้นฐานมาก่อน</div>
+
+    <h2>1. ตัวแปร (Variables) คืออะไร?</h2>
+    <p>ลองนึกภาพว่าคุณกำลังเก็บของเล่นใส่กล่อง แล้วเอาป้ายชื่อแปะไว้ข้างกล่อง เพื่อให้รู้ว่าข้างในคืออะไร... <strong>"ตัวแปร" ในคอมพิวเตอร์ก็คือกล่องเก็บข้อมูลเหล่านั้นครับ!</strong></p>
+    <p>เวลาที่เราเขียนโปรแกรม เราต้องการจำค่าอะไรบางอย่าง เช่น คะแนนสอบ ชื่อผู้เล่น หรือราคาสินค้า เราก็สร้าง "ตัวแปร" ขึ้นมาเพื่อเก็บข้อมูลนั้นไว้ แล้วเรียกใช้งานได้ตลอดเวลาโดยไม่ต้องจำค่าเอง</p>
+
+    <div class="code-box">
+<span class="code-comment"># ตัวอย่างการสร้างตัวแปรใน Python</span>
+name = <span class="code-string">"สมชาย"</span>       <span class="code-comment"># สร้างกล่องชื่อ name เก็บข้อความ "สมชาย"</span>
+score = <span class="code-keyword">95</span>           <span class="code-comment"># สร้างกล่องชื่อ score เก็บตัวเลข 95</span>
+is_passed = <span class="code-keyword">True</span>     <span class="code-comment"># สร้างกล่องชื่อ is_passed เก็บสถานะความจริง (True/False)</span>
+    </div>
+
+    <h3>วิธีตั้งชื่อตัวแปร (ข้อควรรู้สำหรับมือใหม่)</h3>
+    <ul>
+        <li><strong>ชื่อต้องสื่อความหมาย:</strong> ควรตั้งให้รู้ว่าเก็บอะไร เช่น <code>price</code>, <code>student_name</code> ไม่ควรตั้งมั่วๆ เช่น <code>x1</code>, <code>asdf</code></li>
+        <li><strong>ห้ามเว้นวรรค:</strong> หากมีหลายคำให้ใช้ขีดล่าง (Underscore) เชื่อม เช่น <code>my_score</code></li>
+        <li><strong>ห้ามขึ้นต้นด้วยตัวเลข:</strong> เช่น <code>1name</code> แบบนี้โปรแกรมจะฟ้อง Error ทันที แต่ใส่ตัวเลขข้างหลังได้ เช่น <code>name1</code></li>
+        <li><strong>ภาษาไทยใช้ได้แต่ไม่แนะนำ:</strong> เพื่อความสากลและความปลอดภัย แนะนำให้ใช้ภาษาอังกฤษเสมอ</li>
+    </ul>
+
+    <h2>2. ฟังก์ชัน (Functions) คืออะไร?</h2>
+    <p>ถ้าตัวแปรคือ "กล่องเก็บของ" <strong>ฟังก์ชันก็คือ "เครื่องจักรกลอัตโนมัติ" หรือ "พ่อครัว" ประจำตัวเราครับ!</strong></p>
+    <p>ฟังก์ชันคือชุดคำสั่งที่ถูกเขียนรวบรวมไว้สำหรับทำงานอย่างใดอย่างหนึ่งให้เสร็จ เมื่อเราเรียกใช้ฟังก์ชันนั้น มันจะทำงานตามที่เราสั่งทันทีโดยที่เราไม่ต้องเขียนโค้ดยาวๆ ซ้ำๆ</p>
+
+    <div class="callout">
+        <strong>เปรียบเทียบให้เห็นภาพ:</strong> นึกถึง "เครื่องปั่นน้ำผลไม้" คุณใส่ผลไม้เข้าไป (เรียกว่า <strong>Argument</strong> หรือข้อมูลนำเข้า) เครื่องปั่นจะทำงานตามกลไก แล้วคั้นน้ำผลไม้ออกมาให้คุณดื่ม (เรียกว่า <strong>Return value</strong> หรือผลลัพธ์)
+    </div>
+
+    <div class="code-box">
+<span class="code-comment"># ตัวอย่างการใช้ฟังก์ชันสำเร็จรูปใน Python</span>
+message = <span class="code-string">"สวัสดีชาวโลก"</span>
+print(message)   <span class="code-comment"># print() คือฟังก์ชันสำหรับแสดงผลข้อความออกหน้าจอ</span>
+
+length = len(<span class="code-string">"Python"</span>) <span class="code-comment"># len() คือฟังก์ชันนับจำนวนตัวอักษร (ผลลัพธ์จะได้ 6)</span>
+print(length)
+    </div>
+
+    <h2>3. วงเล็บ <span class="math">()</span> ทำหน้าที่อะไร? ในกรณีไหนใช้ได้/ไม่ได้บ้าง?</h2>
+    <p>เครื่องหมายวงเล็บกลม <span class="math">()</span> เป็นสัญลักษณ์ที่มีบทบาทสำคัญมากๆ ใน Python แต่ผู้เริ่มต้นมักจะสับสนว่ามันใช้ทำอะไรและใช้ตอนไหนบ้าง มาดูสรุปแบบละเอียดกันครับ</p>
+
+    <h3>กรณีที่ 1: "ใช้ได้" และ "ต้องใช้" (กรณีที่บังคับต้องมี)</h3>
+    <table>
+        <tr>
+            <th>สถานการณ์</th>
+            <th>คำอธิบาย</th>
+            <th>ตัวอย่างโค้ด</th>
+        </tr>
+        <tr>
+            <td><strong>1. เรียกใช้งานฟังก์ชัน (Function Call)</strong></td>
+            <td>ใช้ตามหลังชื่อฟังก์ชันเสมอ เพื่อบอกว่าเรากำลังสั่งให้ฟังก์ชันนั้นทำงาน และใช้ใส่ข้อมูล (Arguments) เข้าไปข้างใน</td>
+            <td><code>print("Hello")</code><br><code>len([1, 2, 3])</code></td>
+        </tr>
+        <tr>
+            <td><strong>2. จัดลำดับการคำนวณทางคณิตศาสตร์</strong></td>
+            <td>ใช้กำหนดลำดับความสำคัญ เหมือนในวิชาคณิตศาสตร์ วงเล็บด้านในจะถูกคำนวณก่อน</td>
+            <td><code>result = (5 + 3) * 2</code> <br>(คำนวณ 5+3 ก่อน แล้วค่อยคูณ 2)</td>
+        </tr>
+        <tr>
+            <td><strong>3. สร้าง Tuple (ข้อมูลแบบกลุ่มที่แก้ไขไม่ได้)</strong></td>
+            <td>ใช้ครอบข้อมูลหลายๆ ตัวเข้าด้วยกัน</td>
+            <td><code>coordinates = (10.5, 20.3)</code></td>
+        </tr>
+    </table>
+
+    <h3>กรณีที่ 2: "ใช้ไม่ได้" (ข้อห้ามและข้อควรระวังสำหรับมือใหม่)</h3>
+    <div class="callout-warning" style="background-color: #fff5f5; border-left: 4px solid #e53e3e; padding: 12px 15px; margin: 15px 0; border-radius: 0 8px 8px 0;">
+        <strong>ห้ามใช้วงเล็บ <span class="math">()</span> ในกรณีเหล่านี้เด็ดขาด:</strong>
+        <ul>
+            <li><strong>ห้ามใช้ครอบเงื่อนไข If-Else แบบภาษาอื่น:</strong> ในภาษา C หรือ Java ต้องมีวงเล็บครอบเงื่อนไข เช่น <code>if (x > 5)</code> แต่ใน Python <strong>ห้ามใส่</strong> ต้องเขียนว่า <code>if x > 5:</code> เท่านั้น</li>
+            <li><strong>ห้ามใช้สร้างบล็อกคำสั่ง (Code Block):</strong> เช่น แทนที่จะใช้ปีกกา <code>{}</code> ในการครอบกลุ่มคำสั่ง Python ใช้การย่อหน้า (Indentation) แทน ห้ามใช้วงเล็บกลมหรือปีกกามาครอบบล็อกคำสั่งเด็ดขาด</li>
+            <li><strong>ห้ามใส่วงเล็บตอนประกาศตัวแปรเดี่ยว:</strong> เช่น <code>(score) = 50</code> ทำได้แต่ไม่มีประโยชน์และผิดหลักไวยากรณ์ในบางบริบท</li>
+        </ul>
+    </div>
+
+    <h3>สรุปเปรียบเทียบการใช้เครื่องหมายวงเล็บ</h3>
+    <ul>
+        <li>✅ <span style="color: #38a169; font-weight: bold;">ใช้ได้ถูกวิธี:</span> <code>print("ยินดีต้อนรับ")</code> (เรียกฟังก์ชัน)</li>
+        <li>❌ <span style="color: #e53e3e; font-weight: bold;">ใช้ผิดวิธี:</span> <code>if (score >= 50):</code> (Python ไม่ต้องใช้วงเล็บครอบเงื่อนไข)</li>
+    </ul>
+
+    <hr style="border: 0; border-top: 1px solid #cbd5e0; margin: 30px 0;">
+    <p style="text-align: center; color: #718096; font-size: 10pt;">จัดทำขึ้นเป็นพิเศษเพื่อเป็นคู่มือปูพื้นฐาน Python ฉบับเข้าใจง่ายที่สุด | 2026</p>
+
+</body>
+</html>

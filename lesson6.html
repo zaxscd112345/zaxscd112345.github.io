@@ -3,242 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="site_title">Student Python Masterclass</title>
+    <title>บทที่ 6: โครงสร้างข้อมูล (Lists & Dictionaries) - Student Python Masterclass</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: { fontFamily: { sans: ['Mali', 'Itim', 'Noto Sans SC', 'sans-serif'], mali: ['Mali', 'cursive'] } } }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Mali:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style> body { font-family: 'Mali', 'Itim', 'Noto Sans SC', cursive, sans-serif; } </style>
-    <script>
-        const translations = {
-            th: {
-                site_title: "Student Python Masterclass",
-                header_subtitle: "คู่มือเรียน Python ฉบับสมบูรณ์ที่สุด เนื้อหาครบถ้วน ละเอียดทุกบรรทัด",
-                menu_title: "เมนูบทเรียนทั้งหมด (8 บทเรียน)",
-                l1: "บทที่ 1: ตัวแปร, ฟังก์ชัน และวงเล็บคืออะไร?",
-                l2: "บทที่ 2: ชนิดข้อมูล & ตัวดำเนินการ",
-                l3: "บทที่ 3: เงื่อนไขและการตัดสินใจ (If-Else)",
-                l4: "บทที่ 4: การวนซ้ำ (For & While Loops)",
-                l5: "บทที่ 5: ฟังก์ชันและการรับส่งค่า",
-                l6: "บทที่ 6: โครงสร้างข้อมูล (List, Tuple, Dict)",
-                l7: "บทที่ 7: การจัดการข้อผิดพลาด (Exception Handling)",
-                l8: "บทที่ 8: การจัดการไฟล์ (File I/O)",
-                quiz: "ข้อสอบเก็บคะแนน (Quiz Hub)",
-                dark_mode: "โหมดมืด",
-                light_mode: "โหมดสว่าง",
-                footer_text: "Copyright © 2026 Student Python Masterclass. All Rights Reserved.",
-                widget_progress: "ความก้าวหน้าการเรียนรู้",
-                widget_status: "สถานะระบบ: สมบูรณ์ 100%"
-            },
-            en: {
-                site_title: "Student Python Masterclass",
-                header_subtitle: "Complete Python Guide: Detailed & Comprehensive Lessons.",
-                menu_title: "All Lessons (8 Chapters)",
-                l1: "Lesson 1: Variables, Functions & Brackets",
-                l2: "Lesson 2: Data Types & Operators",
-                l3: "Lesson 3: Conditional Statements (If-Else)",
-                l4: "Lesson 4: Loops (For & While)",
-                l5: "Lesson 5: Functions & Scope",
-                l6: "Lesson 6: Data Structures (List, Tuple, Dict)",
-                l7: "Lesson 7: Exception Handling",
-                l8: "Lesson 8: File I/O Operations",
-                quiz: "Assessment Quiz Hub",
-                dark_mode: "Dark Mode",
-                light_mode: "Light Mode",
-                footer_text: "Copyright © 2026 Student Python Masterclass. All Rights Reserved.",
-                widget_progress: "Learning Progress",
-                widget_status: "System Status: 100% Operational"
-            },
-            cn: {
-                site_title: "Student Python Masterclass",
-                header_subtitle: "Python 完整学习指南：零基础到精通",
-                menu_title: "所有课程菜单 (8课)",
-                l1: "第一课：变量、函数与括号详解",
-                l2: "第二课：数据类型与运算符",
-                l3: "第三课：条件判断语句 (If-Else)",
-                l4: "第四课：循环结构 (For & While)",
-                l5: "第五课：函数与参数传递",
-                l6: "第六课：高级数据结构 (List, Tuple, Dict)",
-                l7: "第七课：异常处理 (Error Handling)",
-                l8: "第八课：文件读写操作 (File I/O)",
-                quiz: "互动测验中心 (Quiz Hub)",
-                dark_mode: "深色模式",
-                light_mode: "浅色模式",
-                footer_text: "Copyright © 2026 Student Python Masterclass. All Rights Reserved.",
-                widget_progress: "学习进度",
-                widget_status: "系统状态：运行正常"
-            }
-        };
-
-        function setLanguage(lang) {
-            localStorage.setItem('lang', lang);
-            document.documentElement.setAttribute('lang', lang);
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
-                        el.setAttribute('placeholder', translations[lang][key]);
-                    } else {
-                        el.innerText = translations[lang][key];
-                    }
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Prompt', 'sans-serif'], mali: ['Mali', 'cursive'] }
                 }
-            });
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('bg-pink-500', 'text-white', 'shadow-md');
-                    btn.classList.remove('bg-slate-100', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-slate-300');
-                } else {
-                    btn.classList.remove('bg-pink-500', 'text-white', 'shadow-md');
-                    btn.classList.add('bg-slate-100', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-slate-300');
-                }
-            });
-        }
-
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            const htmlRoot = document.getElementById('htmlRoot');
-            if (savedTheme === 'light') {
-                htmlRoot.classList.remove('dark');
-            } else {
-                htmlRoot.classList.add('dark');
-            }
-            const savedLang = localStorage.getItem('lang') || 'th';
-            window.addEventListener('DOMContentLoaded', () => {
-                setLanguage(savedLang);
-                updateThemeUI();
-            });
-        })();
-
-        function toggleTheme() {
-            const htmlRoot = document.getElementById('htmlRoot');
-            if (htmlRoot.classList.contains('dark')) {
-                htmlRoot.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                htmlRoot.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-            updateThemeUI();
-        }
-
-        function updateThemeUI() {
-            const htmlRoot = document.getElementById('htmlRoot');
-            const themeIcon = document.getElementById('themeIcon');
-            const themeLabel = document.getElementById('themeLabel');
-            if (!themeIcon || !themeLabel) return;
-            const currentLang = localStorage.getItem('lang') || 'th';
-            if (htmlRoot.classList.contains('dark')) {
-                themeIcon.className = 'fa-solid fa-moon text-pink-400';
-                themeLabel.innerText = translations[currentLang].dark_mode;
-            } else {
-                themeIcon.className = 'fa-solid fa-sun text-amber-500';
-                themeLabel.innerText = translations[currentLang].light_mode;
             }
         }
     </script>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 h-full flex flex-col justify-between selection:bg-pink-400 selection:text-white transition-colors duration-300">
+<body class="bg-slate-950 text-slate-100 font-sans min-h-full flex flex-col">
+    <!-- Navbar -->
+    <nav class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 px-4 py-3 flex justify-between items-center shadow-md">
+        <div class="flex items-center space-x-3">
+            <span class="text-2xl">🐍</span>
+            <span class="font-bold text-lg text-emerald-400 font-mali">Python Masterclass - บทที่ 6</span>
+        </div>
+        <div class="flex items-center space-x-2">
+            <a href="index.html" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm rounded-lg transition">🏠 หน้าแรก</a>
+            <a href="quiz.html" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold rounded-lg transition shadow">📝 ข้อสอบบทนี้</a>
+        </div>
+    </nav>
 
-    <header class="bg-white/85 dark:bg-slate-800/85 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="bg-gradient-to-tr from-pink-500 to-rose-500 p-2.5 sm:p-3 rounded-2xl shadow-md shadow-pink-500/20">
-                    <i class="fa-solid fa-code text-xl sm:text-2xl text-white"></i>
-                </div>
-                <div>
-                    <h1 class="text-xs sm:text-base lg:text-xl font-bold tracking-wide bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent" data-i18n="site_title">Student Python Masterclass</h1>
-                    <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium" data-i18n="header_subtitle">คู่มือเรียน Python ฉบับสมบูรณ์ที่สุด เนื้อหาครบถ้วน ละเอียดทุกบรรทัด</p>
-                </div>
-            </div>
+    <!-- Main Content -->
+    <main class="flex-1 max-w-4xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
+        <!-- Header Section -->
+        <div class="bg-gradient-to-r from-emerald-900/40 to-slate-900 border border-emerald-500/30 rounded-2xl p-6 sm:p-8 shadow-xl">
+            <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full uppercase tracking-wider">Chapter 6</span>
+            <h1 class="text-3xl sm:text-4xl font-bold mt-3 text-white font-mali">โครงสร้างข้อมูล (Lists & Dictionaries)</h1>
+            <p class="text-slate-300 mt-2 text-base sm:text-lg">
+                เรียนรู้วิธีเก็บข้อมูลจำนวนมากในตัวแปรเดียวด้วย List (รายการ) และ Dictionary (ข้อมูลแบบจับคู่คีย์-ค่า) พร้อมคำอธิบายทุกบรรทัด
+            </p>
+        </div>
+
+        <!-- Section 1: Lists -->
+        <section class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-lg space-y-4">
+            <h2 class="text-2xl font-bold text-emerald-400 font-mali flex items-center gap-2">
+                <span>📋</span> 1. การใช้งาน List (รายการข้อมูล)
+            </h2>
+            <p class="text-slate-300">
+                List ใช้เก็บข้อมูลหลาย ๆ ค่าเรียงต่อกันในตัวแปรเดียว สามารถเพิ่ม ลบ และเข้าถึงข้อมูลด้วย Index (เริ่มต้นที่ 0)
+            </p>
             
-            <div class="flex items-center space-x-2 sm:space-x-3">
-                <div class="flex bg-slate-100 dark:bg-slate-700/60 p-1 rounded-2xl border border-slate-300 dark:border-slate-600 text-xs font-bold">
-                    <button onclick="setLanguage('th')" data-lang="th" class="lang-btn px-2.5 py-1.5 rounded-xl transition-all">ไทย</button>
-                    <button onclick="setLanguage('en')" data-lang="en" class="lang-btn px-2.5 py-1.5 rounded-xl transition-all">ENG</button>
-                    <button onclick="setLanguage('cn')" data-lang="cn" class="lang-btn px-2.5 py-1.5 rounded-xl transition-all">中文</button>
-                </div>
+            <div class="bg-slate-950 rounded-xl p-4 border border-slate-800 space-y-2">
+                <div class="text-xs text-slate-400 uppercase font-semibold">ตัวอย่างโค้ดพร้อมคำอธิบายทีละบรรทัด (Line-by-Line):</div>
+                <pre class="overflow-x-auto text-xs sm:text-sm leading-relaxed text-emerald-300 bg-slate-900/90 p-4 rounded-lg border border-slate-800 font-mono"><code><span class="text-slate-500"># สร้าง List เก็บชื่อผลไม้ 3 ชนิด ไว้ในตัวแปรชื่อ fruits</span>
+fruits = [<span class="text-amber-300">"apple"</span>, <span class="text-amber-300">"banana"</span>, <span class="text-amber-300">"orange"</span>]
 
-                <button onclick="toggleTheme()" class="bg-slate-100 dark:bg-slate-700/60 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-600 px-3 sm:px-4 py-2 rounded-2xl text-xs sm:text-sm font-medium transition-all shadow-sm flex items-center space-x-1.5">
-                    <i id="themeIcon" class="fa-solid fa-moon text-pink-400"></i> <span id="themeLabel" class="hidden sm:inline">โหมดมืด</span>
-                </button>
+<span class="text-slate-500"># ใช้คำสั่ง append เพื่อเพิ่มข้อมูลคำว่า "mango" ต่อท้ายเข้าไปใน List fruits</span>
+fruits.<span class="text-blue-400">append</span>(<span class="text-amber-300">"mango"</span>)
+
+<span class="text-slate-500"># พิมพ์ข้อมูลใน List ที่ตำแหน่ง Index ที่ 0 (ตัวแรกสุด คือ "apple") ออกทางหน้าจอ</span>
+<span class="text-pink-400">print</span>(fruits[<span class="text-purple-400">0</span>])</code></pre>
             </div>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-grow w-full grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
-        <aside class="lg:col-span-1 space-y-6 h-fit sticky top-28">
-            <div class="bg-white/85 dark:bg-slate-800/70 backdrop-blur border border-slate-200 dark:border-slate-700/80 rounded-3xl p-4 sm:p-5 shadow-sm">
-                <h2 class="text-base sm:text-lg font-bold text-pink-500 dark:text-pink-400 mb-3 flex items-center space-x-2">
-                    <i class="fa-solid fa-bars-staggered"></i><span data-i18n="menu_title">เมนูบทเรียนทั้งหมด (8 บทเรียน)</span>
-                </h2>
-                <nav class="space-y-1.5 text-xs sm:text-sm font-bold">
-                    <a href="index.html" class="menu-l1 w-full text-left px-3 py-2 rounded-xl transition-all flex items-center space-x-2.5"><i class="fa-solid fa-1 w-4 text-center"></i><span data-i18n="l1">บทที่ 1: ตัวแปร, ฟังก์ชัน และวงเล็บคืออะไร?</span></a>
-                    <a href="lesson2.html" class="menu-l2 w-full text-left px-3 py-2 rounded-xl transition-all flex items-center space-x-2.5"><i class="fa-solid fa-2 w-4 text-center"></i><span data-i18n="l2">บทที่ 2: ชนิดข้อมูล & ตัวดำเนินการ</span></a>
-                    <a href="lesson3.html" class="menu-l3 w-full text-left px-3 py-2 rounded-xl transition-all flex items-center space-x-2.5"><i class="fa-solid fa-3 w-4 text-center"></i><span data-i18n="l3">บทที่ 3: เงื่อนไขและการตัดสินใจ (If-Else)</span></a>
-                    <a href="lesson4.html" class="menu-l4 w-full text-left px-3 py-2 rounded-xl transition-all flex items-center space-x-2.5"><i class="fa-solid fa-4 w-4 text-center"></i><span data-i18n="l4">บทที่ 4: การวนซ้ำ (For & While Loops)</span></a>
-                    <a href="lesson5.html" class="menu-l5 w-full text-left px-3 py-2 rounded-xl transition-all flex items-center space-x-2.5"><i class="fa-solid fa-5 w-4 text-center"></i><span data-i18n="l5">บทที่ 5: ฟังก์ชันและการรับส่งค่า</span></a>
-                    <a href="lesson6.html" class="menu-l6 w-full text-left px-3 py-2 rounded-xl transition-all flex items-center space-x-2.5"><i class="fa-solid fa-6 w-4 text-center"></i><span data-i18n="l6">บทที่ 6: โครงสร้างข้อมูล (List, Tuple, Dict)</span></a>
-                    <a href="lesson7.html" class="menu-l7 w-full text-left px-3 py-2 rounded-xl transition-all flex items-center space-x-2.5"><i class="fa-solid fa-7 w-4 text-center"></i><span data-i18n="l7">บทที่ 7: การจัดการข้อผิดพลาด</span></a>
-                    <a href="lesson8.html" class="menu-l8 w-full text-left px-3 py-2 rounded-xl transition-all flex items-center space-x-2.5"><i class="fa-solid fa-8 w-4 text-center"></i><span data-i18n="l8">บทที่ 8: การจัดการไฟล์ (File I/O)</span></a>
-                    <a href="quiz.html" class="menu-quiz w-full text-left px-3 py-2 rounded-xl transition-all flex items-center space-x-2.5 border-t border-slate-200 dark:border-slate-700 pt-2.5 mt-1"><i class="fa-solid fa-file-pen w-4 text-center text-amber-500"></i><span data-i18n="quiz">ข้อสอบเก็บคะแนน (Quiz Hub)</span></a>
-                </nav>
+            <div class="bg-emerald-950/40 border border-emerald-500/20 rounded-xl p-4 text-sm text-emerald-200">
+                💡 <strong>ผลลัพธ์ที่จะแสดงบนหน้าจอ:</strong><br>
+                apple
             </div>
-
-            <div class="bg-gradient-to-br from-pink-500/10 to-rose-500/10 dark:from-pink-950/30 dark:to-rose-950/30 border border-pink-500/20 rounded-3xl p-5 space-y-3 shadow-sm">
-                <div class="flex items-center justify-between">
-                    <span class="text-xs font-bold text-pink-600 dark:text-pink-400 flex items-center"><i class="fa-solid fa-chart-line mr-2"></i><span data-i18n="widget_progress">ความก้าวหน้าการเรียนรู้</span></span>
-                    <span class="text-xs font-bold px-2 py-0.5 bg-pink-500 text-white rounded-full">Pro</span>
-                </div>
-                <div class="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
-                    <div id="progressBar" class="bg-gradient-to-r from-pink-500 to-rose-500 h-full rounded-full transition-all duration-500" style="width: 12%;"></div>
-                </div>
-                <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium" data-i18n="widget_status">สถานะระบบ: สมบูรณ์ 100%</p>
-            </div>
-        </aside>
-
-        <section class="lg:col-span-3 space-y-6">
-
-    <div class="bg-white/90 dark:bg-slate-800/70 backdrop-blur border border-slate-200 dark:border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-sm space-y-8">
-        <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
-            <span class="text-xs uppercase tracking-wider px-3 py-1 bg-pink-500/10 text-pink-600 dark:text-pink-400 rounded-full font-bold">บทที่ 6 (เก็บข้อมูลหลายค่าพร้อมกัน)</span>
-            <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold mt-2 text-slate-900 dark:text-white">โครงสร้างข้อมูล (List, Tuple & Dictionary)</h2>
-        </div>
-
-        <div class="space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-            <h3 class="text-lg sm:text-xl font-bold text-pink-600 dark:text-pink-400 flex items-center"><i class="fa-solid fa-layer-group mr-2"></i>1. List (รายการข้อมูล แก้ไขได้)</h3>
-            <p>ใช้เก็บข้อมูลหลายๆ ค่าไว้ในตัวแปรเดียว ใช้เครื่องหมายก้ามปู <code>[]</code></p>
-            <div class="bg-slate-950 rounded-2xl p-4 sm:p-6 border border-slate-800 shadow-inner font-mono text-sm">
-                <pre class="overflow-x-auto text-xs sm:text-sm lg:text-base leading-relaxed text-emerald-400"><code>fruits = [<span class="text-amber-300">"apple"</span>, <span class="text-amber-300">"banana"</span>, <span class="text-amber-300">"orange"</span>]
-fruits.<span class="text-blue-400">append</span>(<span class="text-amber-300">"mango"</span>) <span class="text-slate-550"># เพิ่มข้อมูลต่อท้าย</span>
-<span class="text-pink-400">print</span>(fruits[<span class="text-purple-400">0</span>])  <span class="text-slate-500"># เข้าถึงข้อมูลตัวแรก: apple</span></code></pre>
-            </div>
-        </div>
-
-        <div class="space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed pt-4 border-t border-slate-200 dark:border-slate-700">
-            <h3 class="text-lg sm:text-xl font-bold text-pink-600 dark:text-pink-400 flex items-center"><i class="fa-solid fa-book mr-2"></i>2. Dictionary (ข้อมูลแบบจับคู่ Key-Value)</h3>
-            <p>เก็บข้อมูลแบบมีป้ายชื่อ (Key) กำกับค่า (Value) ใช้เครื่องหมายปีกกา <code>{}</code></p>
-            <div class="bg-slate-950 rounded-2xl p-4 sm:p-6 border border-slate-800 shadow-inner font-mono text-sm">
-                <pre class="overflow-x-auto text-xs sm:text-sm lg:text-base leading-relaxed text-emerald-400"><code>student = {
-    <span class="text-amber-300">"name"</span>: <span class="text-amber-300">"สมชาย"</span>,
-    <span class="text-amber-300">"age"</span>: <span class="text-purple-400">20</span>,
-    <span class="text-amber-300">"grade"</span>: <span class="text-amber-300">"A"</span>
-}
-<span class="text-pink-400">print</span>(student[<span class="text-amber-300">"name"</span>])  <span class="text-slate-500"># ผลลัพธ์: สมชาย</span></code></pre>
-            </div>
-        </div>
-    </div>
-    <script>document.querySelector('.menu-l6').classList.add('bg-pink-500', 'text-white', 'shadow-md', 'shadow-pink-500/20'); document.getElementById('progressBar').style.width = '75%';</script>
-    
         </section>
+
+        <!-- Section 2: Dictionaries -->
+        <section class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-lg space-y-4">
+            <h2 class="text-2xl font-bold text-emerald-400 font-mali flex items-center gap-2">
+                <span>📖</span> 2. การใช้งาน Dictionary (ข้อมูลแบบ Key-Value)
+            </h2>
+            <p class="text-slate-300">
+                Dictionary ใช้เก็บข้อมูลในรูปแบบคู่กัน คือ <strong>Key (ป้ายชื่อ)</strong> และ <strong>Value (ค่าของข้อมูล)</strong> คล้ายกับการเปิดพจนานุกรม
+            </p>
+            
+            <div class="bg-slate-950 rounded-xl p-4 border border-slate-800 space-y-2">
+                <div class="text-xs text-slate-400 uppercase font-semibold">ตัวอย่างโค้ดพร้อมคำอธิบายทีละบรรทัด (Line-by-Line):</div>
+                <pre class="overflow-x-auto text-xs sm:text-sm leading-relaxed text-emerald-300 bg-slate-900/90 p-4 rounded-lg border border-slate-800 font-mono"><code><span class="text-slate-500"># สร้าง Dictionary เก็บข้อมูลนักเรียน ในตัวแปรชื่อ student ประกอบด้วย Key และ Value</span>
+student = {
+    <span class="text-amber-300">"name"</span>: <span class="text-amber-300">"สมชาย"</span>,   <span class="text-slate-500"># Key คือ "name", Value คือ "สมชาย"</span>
+    <span class="text-amber-300">"age"</span>: <span class="text-purple-400">20</span>,      <span class="text-slate-500"># Key คือ "age", Value คือ 20</span>
+    <span class="text-amber-300">"grade"</span>: <span class="text-amber-300">"A"</span>    <span class="text-slate-500"># Key คือ "grade", Value คือ "A"</span>
+}
+
+<span class="text-slate-500"># เข้าถึงข้อมูลใน Dictionary โดยเรียกผ่าน Key ชื่อ "name" แล้วพิมพ์ผลลัพธ์ออกมา</span>
+<span class="text-pink-400">print</span>(student[<span class="text-amber-300">"name"</span>])</code></pre>
+            </div>
+            <div class="bg-emerald-950/40 border border-emerald-500/20 rounded-xl p-4 text-sm text-emerald-200">
+                💡 <strong>ผลลัพธ์ที่จะแสดงบนหน้าจอ:</strong><br>
+                สมชาย
+            </div>
+        </section>
+
+        <!-- Navigation Footer -->
+        <div class="flex justify-between items-center pt-4">
+            <a href="lesson5.html" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl transition text-sm font-semibold">← บทที่ 5: ฟังก์ชัน (Functions)</a>
+            <a href="index.html" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl transition text-sm font-semibold shadow">🏠 กลับหน้าหลัก</a>
+        </div>
     </main>
 
-    <footer class="bg-white/85 dark:bg-slate-800/85 border-t border-slate-200 dark:border-slate-700 py-6 mt-12 text-center text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
-        <div class="max-w-7xl mx-auto px-4"><p data-i18n="footer_text">Copyright © 2026 Student Python Masterclass. All Rights Reserved.</p></div>
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-slate-800 py-6 text-center text-slate-500 text-sm">
+        Student Python Masterclass &copy; 2026 - ออกแบบเพื่อการเรียนรู้อย่างแท้จริง
     </footer>
 </body>
 </html>
